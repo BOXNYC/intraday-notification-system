@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.turbo/
+coverage/
+.env
+
+# Runtime rule store. rules.seed.json and queue-events.jsonl stay committed.
+apps/api/data/rules.json

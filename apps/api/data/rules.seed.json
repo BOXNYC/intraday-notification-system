@@ -1,0 +1,68 @@
+[
+  {
+    "rule_id": "r_adherence_10m",
+    "name": "I've been out of adherence for over 10 minutes",
+    "owner_user_uuid": "u_agent_a19",
+    "enabled": true,
+    "event_type": "adherence_check",
+    "conditions": [{ "field": "in_violation", "op": "eq", "value": true }],
+    "sustained_for_sec": 600,
+    "scope": { "queue_ids": null, "agent_ids": ["a_19"] },
+    "severity": "warning",
+    "cooldown_sec": 900
+  },
+  {
+    "rule_id": "r_billing_backlog",
+    "name": "Billing queue has more than 20 tickets waiting",
+    "owner_user_uuid": "u_lead_billing",
+    "enabled": true,
+    "event_type": "queue_snapshot",
+    "conditions": [{ "field": "tickets_waiting", "op": "gt", "value": 20 }],
+    "sustained_for_sec": null,
+    "scope": { "queue_ids": ["billing"], "agent_ids": null },
+    "severity": "warning",
+    "cooldown_sec": 600
+  },
+  {
+    "rule_id": "r_long_call_45m",
+    "name": "One of my agents has been on a single call for over 45 minutes",
+    "owner_user_uuid": "u_lead_billing",
+    "enabled": true,
+    "event_type": "agent_state_change",
+    "conditions": [{ "field": "new_state", "op": "eq", "value": "on_call" }],
+    "sustained_for_sec": 2700,
+    "scope": {
+      "queue_ids": null,
+      "agent_ids": ["a_19", "a_07", "a_42", "a_31", "a_11", "a_23", "a_88", "a_05"]
+    },
+    "severity": "warning",
+    "cooldown_sec": 1800
+  },
+  {
+    "rule_id": "r_team_adherence",
+    "name": "An agent on my team has drifted out of adherence",
+    "owner_user_uuid": "u_lead_billing",
+    "enabled": true,
+    "event_type": "adherence_check",
+    "conditions": [{ "field": "in_violation", "op": "eq", "value": true }],
+    "sustained_for_sec": 600,
+    "scope": {
+      "queue_ids": null,
+      "agent_ids": ["a_19", "a_07", "a_42", "a_31", "a_11", "a_23", "a_88", "a_05"]
+    },
+    "severity": "info",
+    "cooldown_sec": 1800
+  },
+  {
+    "rule_id": "r_sla_on_fire",
+    "name": "A queue is badly breaching SLA",
+    "owner_user_uuid": "u_head_support",
+    "enabled": true,
+    "event_type": "queue_snapshot",
+    "conditions": [{ "field": "longest_wait_sec", "op": "gt", "value": 240 }],
+    "sustained_for_sec": null,
+    "scope": { "queue_ids": null, "agent_ids": null },
+    "severity": "critical",
+    "cooldown_sec": 1800
+  }
+]
