@@ -10,7 +10,7 @@ import type { User } from '@assembled/types'
 export const USERS: User[] = [
   {
     user_uuid: 'u_agent_a19',
-    name: 'Ash Rivera',
+    name: 'Valerie Pettersen',
     role: 'agent',
     agent_id: 'a_19',
     queue_ids: ['billing'],
@@ -18,7 +18,7 @@ export const USERS: User[] = [
   },
   {
     user_uuid: 'u_lead_billing',
-    name: 'Dana Okafor',
+    name: 'Chasen Stark',
     role: 'team_lead',
     agent_id: null,
     queue_ids: ['billing', 'tier_2'],
@@ -26,7 +26,7 @@ export const USERS: User[] = [
   },
   {
     user_uuid: 'u_head_support',
-    name: 'Sam Whitfield',
+    name: 'John Wang',
     role: 'head_of_support',
     agent_id: null,
     queue_ids: ['billing', 'tier_2', 'vip'],

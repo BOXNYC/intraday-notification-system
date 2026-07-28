@@ -3,7 +3,7 @@
 Users configure their own notification rules. The system evaluates them against a stream of queue events and delivers the results to whoever can act on them.
 
 ```bash
-pnpm install && pnpm dev     # → http://localhost:5173/notifications
+pnpm install && pnpm dev
 ```
 
 Switch users in the header to see one feed produce different notifications per audience.
